@@ -15,6 +15,7 @@ data class Client(
         val info: String? = null
 )
 
+@Document(collection = "employees")
 data class Employee(
         @Id
         val id: String? = null,
@@ -23,6 +24,7 @@ data class Employee(
         val employeeContacts: Map<EmployeeContactType, String> = mapOf()
 )
 
+@Document(collection = "organizations")
 data class Organization(
         @Id
         val id: String? = null,
@@ -32,11 +34,15 @@ data class Organization(
         val employees: Set<String> = setOf()
 )
 
+@Document(collection = "records")
 data class Record(
         @Id
         val id: String? = null,
         val info: String? = null,
         val date: Date? = null,
+        val organizationId: String? = null,
+        val employeeId: String? = null,
+        // TODO maybe replace with external document?
         val services: List<Service> = listOf()
 )
 
