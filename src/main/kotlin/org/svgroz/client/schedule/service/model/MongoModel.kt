@@ -24,15 +24,16 @@ data class Employee(
         val employeeContacts: Map<EmployeeContactType, String> = mapOf()
 )
 
-@Document(collection = "organizations")
-data class Organization(
-        @Id
-        val id: String? = null,
-        val childes: Set<String> = setOf(),
-        val name: String? = null,
-        val type: OrganizationType? = null,
-        val employees: Set<String> = setOf()
-)
+//@Document(collection = "organizations")
+//data class Organization(
+//        @Id
+//        val id: String? = null,
+//        val parentId: String? = null,
+//        val childesIds: Set<String> = setOf(),
+//        val name: String? = null,
+//        val type: OrganizationType? = null,
+//        val employeesIds: Set<String> = setOf()
+//)
 
 @Document(collection = "records")
 data class Record(
@@ -40,8 +41,9 @@ data class Record(
         val id: String? = null,
         val info: String? = null,
         val date: Date? = null,
-        val organizationId: String? = null,
+//        val organizationId: String? = null,
         val employeeId: String? = null,
+        val clientId: String? = null,
         // TODO maybe replace with external document?
         val services: List<Service> = listOf()
 )
